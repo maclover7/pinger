@@ -1,19 +1,27 @@
+// Vue imports and initialization
 var Vue = require('vue');
 var VueRouter = require('vue-router');
-// var Hello = require('./components/Hello');
 
 Vue.use(VueRouter);
 
-var Foo = Vue.extend({
-  template: '<p>This is foo!</p>'
+var App = Vue.extend({});
+var router = new VueRouter({
+  history: true
 });
 
-var App = Vue.extend({});
-var router = new VueRouter();
+// Component imports
+var Container = require('./components/Container');
+var Home = require('./components/Home');
 
 router.map({
-  '/foo': {
-    component: Foo
+  '/': {
+    component: Container,
+
+    subRoutes: {
+      '/': {
+        component: Home
+      }
+    }
   }
 });
 
