@@ -8,7 +8,7 @@ var Foo = Vue.extend({
   template: '<p>This is foo!</p>'
 });
 
-var App = new Vue({});
+var App = Vue.extend({});
 var router = new VueRouter();
 
 router.map({
